@@ -1,0 +1,9 @@
+FROM alpine
+
+# Only two of id, source, target specified:
+RUN --mount=type=secret,id=foo-id,source=foo-source echo
+RUN --mount=type=secret,id=bar-id,target=/run/bar-target echo
+RUN --mount=type=secret,source=baz-source,target=/run/baz-target echo
+
+# All three specified:
+RUN --mount=type=secret,id=quux-id,source=quux-source,target=/run/quux-target echo

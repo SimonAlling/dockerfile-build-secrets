@@ -1,0 +1,11 @@
+FROM alpine
+
+RUN --mount=type=secret,id=foo --mount=type=secret,id=foo,required=true echo
+
+RUN --mount=type=secret,id=bar,required=true --mount=type=secret,id=bar echo
+
+RUN --mount=type=secret,id=baz,required=false echo
+RUN --mount=type=secret,id=baz,required=true echo
+
+RUN --mount=type=secret,id=quux,required=true echo
+RUN --mount=type=secret,id=quux,required=false echo

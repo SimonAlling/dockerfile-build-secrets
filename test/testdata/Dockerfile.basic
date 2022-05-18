@@ -1,0 +1,5 @@
+FROM alpine
+
+RUN --mount=type=secret,id=foo echo
+
+RUN --mount=type=secret,id=bar echo
